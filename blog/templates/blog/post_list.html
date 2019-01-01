@@ -1,29 +1,24 @@
-﻿<!DOCTYPE html>
+﻿{% extends 'blog/base.html' %}
 
-<html>
-<head>
-    <title>Chris's Blog for Maura</title>
-</head>
-<body>
-    <div>
-        <h1><a href="/">Chris's Blog About His Undying Love For Maura Leigh</a></h1>
-    </div>
+{% block content %}
+<div>
+    <h3><em>Figure 1: Chris's Love for Maura Over Time</em></h3>
+    <iframe width="800" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiMDZiZDcyNTctNWM2Yi00YjFhLWE5MzctYTAzZWM0ZGQzYWRjIiwidCI6ImIzMmFmZGU4LTg2YzQtNDY2ZS1iZTk1LTliNjQyN2NmZDJmMiIsImMiOjN9" frameborder="0" allowFullScreen="true"></iframe>
+</div>
 
-    <div>
-        <h3><em>Figure1: Chris's Love for Maura Over Time</em></h3>
-        <iframe width="800" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiMDZiZDcyNTctNWM2Yi00YjFhLWE5MzctYTAzZWM0ZGQzYWRjIiwidCI6ImIzMmFmZGU4LTg2YzQtNDY2ZS1iZTk1LTliNjQyN2NmZDJmMiIsImMiOjN9" frameborder="0" allowFullScreen="true"></iframe>
-    </div>
+<div class="post-section">
+    <h3><em>Posts About Chris's Love for Maura</em></h3>
+</div>
 
-    <div>
-        {% for post in posts %}
-        <div>
-            <p>published: {{ post.published_date }}</p>
-            <h2><a href="">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>
-        </div>
-        {% endfor %}
-    </div>
+{% for post in posts %}
+<div>
+    <div class="date"
+                <p>published: {{ post.published_date }}</p>
+            </div>
+    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+    <p>{{ post.text|linebreaksbr }}</p>
+</div> 
+{% endfor %}
 
-</body>
-</html>
+{% endblock %}
 
