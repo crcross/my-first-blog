@@ -11,3 +11,7 @@ def post_list(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post,pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
+
+def home(request):
+    return print('Not Available')
+
